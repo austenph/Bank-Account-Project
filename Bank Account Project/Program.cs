@@ -31,7 +31,10 @@ namespace Bank_Account_Project
                 savingsummary.WriteLine("Savings Account" + DateTime.Now.ToShortTimeString());
             }
             //instantiating objects for my children classes
-            Checking client = new Checking();
+            Account client = new Account();
+            Checking checking = new Checking();
+            Reserve reserve = new Reserve();
+
             client.AccountNumb();
             client.ClientInfo();
             
