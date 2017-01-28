@@ -34,16 +34,10 @@ namespace Bank_Account_Project
             Account client = new Account();
             Checking checking = new Checking();
             Reserve reserve = new Reserve();
-
-            client.AccountNumb();
-            client.ClientInfo();
-            
-            client.DisplayBalance();
-            client.Transaction = 5;
-            client.Withdrawal();
-            client.DisplayBalance();
+            Savings savings = new Savings();
 
             //Menu
+            client.Menu();
         }
     }
 }

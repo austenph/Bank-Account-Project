@@ -48,11 +48,11 @@ namespace Bank_Account_Project
         {
             return base.Withdrawal();
         }
-        public override void ClientInfo()
-        {
-            base.ClientInfo();
-            Console.WriteLine("Checking Account Type: " + accountLevel);
-            Console.WriteLine("Minimum Balance Required: $" + minBalance);
-        }
+        //public override void ClientInfo()
+        //{
+        //    base.ClientInfo();
+        //    Console.WriteLine("Checking Account Type: " + accountLevel);
+        //    Console.WriteLine("Minimum Balance Required: $" + minBalance);
+        //}
     }
 }

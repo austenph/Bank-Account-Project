@@ -57,14 +57,15 @@ namespace Bank_Account_Project
             this.balance += this.transaction;
             return balance;
         }
-        public virtual void ClientInfo()
+        public virtual void Menu()
         {
-            Console.WriteLine("Fake US Bank Inc.,");
-            Console.WriteLine("Bank Account Holder: " + firstName + " " + lastName);
-            Console.WriteLine("Account Type: " + type);
-            Console.WriteLine("Account Number: " + AcctNumb);
-            Console.WriteLine("Routing Number: " + Routing);
+            Console.WriteLine("Fake US Bank Inc.\n\nWelcome to your online bank account, " + firstName + " " +  lastName + ".\nPlease choose from the options below:\n1.View Client Info\n2.View Account Balance\n3.Deposit Funds\n4.Withdraw Funds\n5.Exit");
         }
+            //
+            //Console.WriteLine("Bank Account Holder: " + firstName + " " + lastName);
+            //Console.WriteLine("Account Type: " + type);
+            //Console.WriteLine("Account Number: " + AcctNumb);
+            //Console.WriteLine("Routing Number: " + Routing);
 
         public virtual void DisplayBalance()
         {
