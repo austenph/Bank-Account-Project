@@ -30,6 +30,10 @@ namespace Bank_Account_Project
             {
                 savingsummary.WriteLine("Savings Account" + DateTime.Now.ToShortTimeString());
             }
+            //instantiating objects for my children classes
+            Account test = new Account();
+            Console.WriteLine(test.AccountNumb());
+            //Menu
         }
     }
 }
