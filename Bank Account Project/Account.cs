@@ -15,6 +15,7 @@ namespace Bank_Account_Project
         private double accountNumber;
         protected double balance;
         protected double transaction;
+        protected string type;
 
         //properties
         public double Routing
@@ -31,13 +32,13 @@ namespace Bank_Account_Project
         }
 
         //constructors
+
         public Account()
         {
-            firstName = "Obama";
-            lastName = "Barack";
+            firstName = "Barack";
+            lastName = "Obama";
             routingNumber = 24000980012;
         }
-
         //methods
         public virtual double AccountNumb()
         {
@@ -55,5 +56,16 @@ namespace Bank_Account_Project
             this.balance += this.transaction;
             return balance;
         }
+        public virtual void ClientInfo()
+        {
+            Console.WriteLine("Fake US Bank Inc.,");
+            Console.WriteLine("Bank Account Holder: " + firstName + " " + lastName);
+            Console.WriteLine("Account Type: " + type);
+            Console.WriteLine("Account Number: " + AcctNumb);
+            Console.WriteLine("Routing Number: " + Routing);
+            Console.WriteLine("Total Balance: " + Balance);
+            
+        }
+        
     }
 }
