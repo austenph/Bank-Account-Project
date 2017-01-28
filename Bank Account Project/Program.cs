@@ -34,7 +34,11 @@ namespace Bank_Account_Project
             Checking client = new Checking();
             client.AccountNumb();
             client.ClientInfo();
-
+            
+            client.DisplayBalance();
+            client.Transaction = 5;
+            client.Withdrawal();
+            client.DisplayBalance();
 
             //Menu
         }

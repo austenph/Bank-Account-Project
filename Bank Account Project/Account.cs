@@ -26,9 +26,10 @@ namespace Bank_Account_Project
         {
             get { return this.accountNumber; }
         }
-        public double Balance
+        public double Transaction
         {
-            get { return this.balance; }
+            get { return this.transaction; }
+            set { this.transaction = value; }
         }
 
         //constructors
@@ -63,8 +64,11 @@ namespace Bank_Account_Project
             Console.WriteLine("Account Type: " + type);
             Console.WriteLine("Account Number: " + AcctNumb);
             Console.WriteLine("Routing Number: " + Routing);
-            Console.WriteLine("Total Balance: " + Balance);
-            
+        }
+
+        public virtual void DisplayBalance()
+        {
+            Console.WriteLine(type + " Current Balance: $" + balance);
         }
         
     }

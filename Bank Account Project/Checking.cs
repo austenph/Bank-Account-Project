@@ -32,7 +32,7 @@ namespace Bank_Account_Project
             this.minBalance = 500;
             this.maxBalance=1000000000000;
             this.balance = 487000;
-            this.type = "Checkings";
+            this.type = "Checking Account";
 
         }
         //methods
