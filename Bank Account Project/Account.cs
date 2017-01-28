@@ -11,26 +11,49 @@ namespace Bank_Account_Project
         //fields
         private string firstName;
         private string lastName;
-        private int routingNumber;
+        private double routingNumber;
         private double accountNumber;
-        private int balance;
+        protected double balance;
+        protected double transaction;
 
         //properties
-        public int Routing
+        public double Routing
         {
             get { return this.routingNumber;}
         }
-        //constructors
-        public Account ()
+        public double AcctNumb
         {
-
+            get { return this.accountNumber; }
         }
+        public double Balance
+        {
+            get { return this.balance; }
+        }
+
+        //constructors
+        public Account()
+        {
+            firstName = "Obama";
+            lastName = "Barack";
+            routingNumber = 24000980012;
+        }
+
         //methods
         public virtual double AccountNumb()
         {
             Random rand = new Random();
             this.accountNumber =rand.Next(100000000, 1000000000);
             return accountNumber;
+        }
+        public virtual double Withdrawal()
+        {
+            this.balance -= this.transaction;
+            return balance;
+        }
+        public virtual double Deposit()
+        {
+            this.balance += this.transaction;
+            return balance;
         }
     }
 }

@@ -9,10 +9,26 @@ namespace Bank_Account_Project
     class Checking:Account
     {
         //fields
+        private string accountLevel;
+        private int minBalance;
+        private double maxBalance;
+  
         //properties
-        //constructors
-        public Checking()
+        public int MinBalance
         {
+            get { return this.minBalance; }
+        }
+        public double MaxBalance
+        {
+            get { return this.maxBalance; }
+        }
+
+        //constructors
+        public Checking():base()
+        {
+            this.accountLevel = "Presidental Performance Select";
+            this.minBalance = 500;
+            this.maxBalance=1000000000000;
 
         }
         //methods
