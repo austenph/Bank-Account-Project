@@ -19,14 +19,6 @@ namespace Bank_Account_Project
         protected double withdrawal;
 
         //properties
-        public double CurrentDep
-        {
-            get; set;
-        }
-        public double CurrentWith
-        {
-            get; set;
-        }
         public double Withdrawal
         {
             get { return this.withdrawal; }
@@ -38,17 +30,16 @@ namespace Bank_Account_Project
             set { this.deposit = value; }
         }
         public double AcctNumber
-        { get{ return this.accountNumber; }}
+        { get { return this.accountNumber; } }
 
         public double Bal
-        { get { return this.balance; }}
+        { get { return this.balance; } }
 
         //constructors
         public Account()
         {
             firstName = "Barack";
             lastName = "Obama";
-            balance = 100;
         }
 
         //methods
@@ -56,23 +47,19 @@ namespace Bank_Account_Project
         public virtual double AccountNumb()
         {
             Random rand = new Random();
-            this.accountNumber =rand.Next(100000000, 1000000000);
+            this.accountNumber = rand.Next(100000000, 1000000000);
             return accountNumber;
         }
-        //balance
-     
+
+        //Computes General Balance(resets values)
         public virtual double Balance()
         {
             balance = balance + deposit - withdrawal;
             deposit = 0;
             withdrawal = 0;
-                 return balance;
-            }
-       public virtual double StoreDeposit(double input)
-        {
-            double currentdeposit = input;
-            return currentdeposit;
+            return balance;
         }
+        //Computers Balance when withdrawal equals zero
         public virtual double DepositBalance(double input)
         {
             deposit = input;
@@ -80,6 +67,8 @@ namespace Bank_Account_Project
             balance = balance + deposit - withdrawal;
             return balance;
         }
+
+        //Computers balance when deposit equals zero
         public virtual double WithBalance(double input)
         {
             withdrawal = input;
@@ -87,7 +76,8 @@ namespace Bank_Account_Project
             balance = balance + deposit - withdrawal;
             return balance;
         }
-        //display menu
+
+        //displays online banking menu
         public virtual void DisplayMenu()
         {
             Console.WriteLine("Fake US Bank Inc.\nWelcome to your online bank account, " + firstName + " " + lastName);
@@ -97,10 +87,11 @@ namespace Bank_Account_Project
             Console.WriteLine("4.Withdraw Funds:\n     4A.Checking\n     4B.Reserve\n     4C.Savings");
             Console.WriteLine("5.Exit");
         }
+
         //client info
         public string ClientInfo()
         {
-             string clientinfo = ("Account Holder: " + firstName + " " + lastName);
+            string clientinfo = ("Account Holder: " + firstName + " " + lastName);
             return clientinfo;
         }
     }

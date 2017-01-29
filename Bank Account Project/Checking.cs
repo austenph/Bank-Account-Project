@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Bank_Account_Project
 {
-    class Checking:Account
+    class Checking : Account
     {
         //field
         private double minBalance;
         private double maxBalance;
 
-  
+
         //properties
         public double MinBalance
-        { get { return this.minBalance; }}
+        { get { return this.minBalance; } }
 
         public double MaxBalance
         { get { return this.maxBalance; } }
@@ -23,31 +23,13 @@ namespace Bank_Account_Project
 
         //constructors
 
-        public Checking():base()
+        public Checking(double balance) : base()
         {
             this.minBalance = 500;
-            this.maxBalance=1000000000000;
+            this.maxBalance = 1000000000000;
+            this.balance = balance;
         }
 
         //methods
-        //random account number assigned
-        public override double AccountNumb()
-        {
-            return base.AccountNumb();
-        }
-        //keeps track of balance
-        public override double Balance()
-        {
-            return base.Balance();
-        }
-        public override double DepositBalance(double input)
-        {
-            return base.DepositBalance(input);
-        }
-        public override double StoreDeposit(double input)
-        {
-            return base.StoreDeposit(input);
-        }
-
     }
 }

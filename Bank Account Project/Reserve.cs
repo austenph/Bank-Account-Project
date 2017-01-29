@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace Bank_Account_Project
 {
-    class Reserve:Account
+    class Reserve : Account
     {
         //fields
         private string wishlist;
         private int interest;
-        protected double reservebalance;
 
         //properties
         public int Interest
@@ -26,30 +25,11 @@ namespace Bank_Account_Project
         }
 
         //constructors
-        public Reserve():base()
+        public Reserve(double balance) : base()
         {
             this.interest = 3;
+            this.balance = balance;
         }
         //methods
-        //account number 
-        public override double AccountNumb()
-        {
-            return base.AccountNumb();
-        }
-        //keeps track of balance
-        public override double Balance()
-        {
-            return base.Balance();
-        }
-        public override double DepositBalance(double input)
-        {
-            return base.DepositBalance(input);
-        }
-        public override double StoreDeposit(double input)
-        {
-            return base.StoreDeposit(input);
-        }
-
-
     }
 }
