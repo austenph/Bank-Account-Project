@@ -29,6 +29,8 @@ namespace Bank_Account_Project
         {
             this.interest = 3;
             this.balance = balance;
+            accountType = "Reserve Account";
+
         }
         //methods
     }

@@ -12,6 +12,7 @@ namespace Bank_Account_Project
         private int interestSavings;
         private int minBalance;
         private int timesWithdrawn;
+
         //properties
         public int Interest2
         {
@@ -26,6 +27,8 @@ namespace Bank_Account_Project
         {
             interestSavings = 10;
             this.balance = balance;
+            accountType = "Savings Account";
+
         }
     }
 }

@@ -13,12 +13,16 @@ namespace Bank_Account_Project
         private string lastName;
 
         private double accountNumber;
+        protected string accountType;
 
         protected double balance;
         protected double deposit;
         protected double withdrawal;
 
         //properties
+        public string AccountType
+        { get { return this.accountType; } }
+
         public double Withdrawal
         {
             get { return this.withdrawal; }
@@ -87,7 +91,6 @@ namespace Bank_Account_Project
             Console.WriteLine("4.Withdraw Funds:\n     4A.Checking\n     4B.Reserve\n     4C.Savings");
             Console.WriteLine("5.Exit");
         }
-
         //client info
         public string ClientInfo()
         {

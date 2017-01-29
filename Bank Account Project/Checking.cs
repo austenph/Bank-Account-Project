@@ -9,6 +9,7 @@ namespace Bank_Account_Project
     class Checking : Account
     {
         //field
+
         private double minBalance;
         private double maxBalance;
 
@@ -28,6 +29,7 @@ namespace Bank_Account_Project
             this.minBalance = 500;
             this.maxBalance = 1000000000000;
             this.balance = balance;
+            accountType = "Checking Account";
         }
 
         //methods

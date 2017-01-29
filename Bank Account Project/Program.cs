@@ -18,27 +18,37 @@ namespace Bank_Account_Project
             checking.AccountNumb();
             Reserve reserve = new Reserve(500);//reserve account
             reserve.AccountNumb();
-            Savings savings = new Savings(1870100);//savings account
+            Savings savings = new Savings(18000);//savings account
             savings.AccountNumb();
 
             //CLIENT AND ACCOUNT NAME STRING PARAMETERS FOR STREAMWRITER
-            string streamclient = ("Account Number: " + checking.AcctNumber);
-            string streamaccount = (client.ClientInfo());
+            string streamcheckingaccount = ("Account Number: " + checking.AcctNumber);
+            string streamreserveaccount = ("Account Number: " + reserve.AcctNumber);
+            string streamsavingsaccount = ("Account Number: " + savings.AcctNumber);
+            string streamclientinfo = (client.ClientInfo());
+            string checkingaccounttype = (checking.AccountType);
+            string reserveaccounttype = (reserve.AccountType);
+            string savingsaccounttype = (savings.AccountType);
 
             using (StreamWriter checkingsummary = new StreamWriter("CheckingSummary.txt", true))
             {
-                checkingsummary.WriteLine(streamclient);
-                checkingsummary.WriteLine(streamaccount);
+                checkingsummary.WriteLine(checkingaccounttype);
+                checkingsummary.WriteLine(streamclientinfo);
+                checkingsummary.WriteLine(streamcheckingaccount);
+
             }
             using (StreamWriter reservesummary = new StreamWriter("ReserveSummary.txt", true))
             {
-                reservesummary.WriteLine(streamclient);
-                reservesummary.WriteLine(streamaccount);
+                reservesummary.WriteLine(reserveaccounttype);
+                reservesummary.WriteLine(streamclientinfo);
+                reservesummary.WriteLine(streamreserveaccount);
+
             }
             using (StreamWriter savingsummary = new StreamWriter("SavingsSummary.txt", true))
             {
-                savingsummary.WriteLine(streamclient);
-                savingsummary.WriteLine(streamaccount);
+                savingsummary.WriteLine(savingsaccounttype);
+                savingsummary.WriteLine(streamclientinfo);
+                savingsummary.WriteLine(streamcheckingaccount);
             }
 
             bool test = false;//way to break out of menu do-while loop
@@ -46,13 +56,12 @@ namespace Bank_Account_Project
             do
             {
                 //PARAMETERS FOR STREAMWRITER THAT ARE TO BE DONE INSIDE OF THE LOOP
-
-                string checkingDepositPara = ("Transaction: " + "+$" + checking.Deposit + " at " + DateTime.Now.ToString() + " Current Balance: $" + checking.Bal);
-                string checkingWithdrawalPara = ("Transaction: " + "-$" + checking.Withdrawal + " at " + DateTime.Now.ToString() + " Current Balance: $" + checking.Bal);
-                string reserveDepositPara = ("Transaction: " + "+$" + reserve.Deposit + " at " + DateTime.Now.ToString() + " Current Balance: $" + reserve.Bal);
-                string reserveWithdrawalPara = ("Transaction: " + "-$" + reserve.Withdrawal + " at " + DateTime.Now.ToString() + " Current Balance: $" + reserve.Bal);
-                string savingsDepositPara = ("Transaction: " + "+$" + savings.Deposit + " at " + DateTime.Now.ToString() + " Current Balance: $" + savings.Bal);
-                string savingsWithdrawalPara = ("Transaction: " + "-$" + savings.Withdrawal + " at " + DateTime.Now.ToString() + " Current Balance: $" + savings.Bal);
+                string checkingDepositPara = ($"Transaction: +${checking.Deposit} at {DateTime.Now.ToString()} Current Balance: ${checking.Bal}");
+                string checkingWithdrawalPara = ($"Transaction: -${checking.Withdrawal} at {DateTime.Now.ToString()} Current Balance: ${checking.Bal}");
+                string reserveDepositPara = ($"Transaction: +${reserve.Deposit} at {DateTime.Now.ToString()} Current Balance: ${reserve.Bal}");
+                string reserveWithdrawalPara = ($"Transaction: -${reserve.Withdrawal} at {DateTime.Now.ToString()} Current Balance: ${reserve.Bal}");
+                string savingsDepositPara = ($"Transaction: +${savings.Deposit} at {DateTime.Now.ToString()} Current Balance: ${savings.Bal}");
+                string savingsWithdrawalPara = ($"Transaction: -${savings.Withdrawal} at {DateTime.Now.ToString()} Current Balance: ${savings.Bal}");
 
                 //INSTANTIATING STREAMWRITER FILES
                 //checking
@@ -61,10 +70,12 @@ namespace Bank_Account_Project
                     if (checking.Deposit > 0)
                     {
                         checkingAccountStreamSummary.WriteLine(checkingDepositPara);
+                        checking.Deposit = 0;
                     }
                     if (checking.Withdrawal > 0)
                     {
                         checkingAccountStreamSummary.WriteLine(checkingWithdrawalPara);
+                        checking.Withdrawal = 0;
                     }
                 }
                 //reserve
@@ -73,10 +84,12 @@ namespace Bank_Account_Project
                     if (reserve.Deposit > 0)
                     {
                         reserveAccountStreamSummary.WriteLine(reserveDepositPara);
+                        reserve.Deposit = 0;
                     }
                     if (reserve.Withdrawal > 0)
                     {
                         reserveAccountStreamSummary.WriteLine(reserveWithdrawalPara);
+                        reserve.Withdrawal = 0;
                     }
                 }
                 //savings
@@ -85,10 +98,12 @@ namespace Bank_Account_Project
                     if (savings.Deposit > 0)
                     {
                         savingsAccountStreamSummary.WriteLine(savingsDepositPara);
+                        savings.Deposit = 0;
                     }
                     if (savings.Withdrawal > 0)
                     {
                         savingsAccountStreamSummary.WriteLine(savingsWithdrawalPara);
+                        savings.Withdrawal = 0;
                     }
                 }
                 //MENU ONLINE BANKING-- this menu is a do-while loop with a nested switch statement.
@@ -149,7 +164,6 @@ namespace Bank_Account_Project
                         Console.WriteLine("You withdrew: $" + checking.Withdrawal);
                         checking.WithBalance(checking.Withdrawal);
                         break;
-
                     case "4B":
                         Console.Clear();//Reserve Account Withdrawal
                         Console.WriteLine("How much would you like to withdraw?");
@@ -174,11 +188,7 @@ namespace Bank_Account_Project
                         test = false;
                         break;
                 }
-                //strings that input to the StreamWriter
-                //checking
-
             } while (!test);
-
         }
     }
 }
