@@ -35,21 +35,25 @@ namespace Bank_Account_Project
             warning = "Your balance is low.";
         }
         //methods
+        //account number 
         public override double AccountNumb()
         {
             return base.AccountNumb();
         }
-        public override double Deposit()
+        //keeps track of balance
+        public override double Balance()
         {
-            return base.Deposit();
+            return base.Balance();
         }
-        public override double Withdrawal()
+        public override double WithdrawBalance(double input)
         {
-            return base.Withdrawal();
+            return base.WithdrawBalance(input);
         }
-        public override void DisplayBalance()
+        public override double DepositBalance(double input)
         {
-            base.DisplayBalance();
+            return base.DepositBalance(input);
         }
+
+
     }
 }

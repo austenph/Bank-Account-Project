@@ -11,66 +11,85 @@ namespace Bank_Account_Project
         //fields
         private string firstName;
         private string lastName;
-        private double routingNumber;
+
         private double accountNumber;
+
         protected double balance;
-        protected double transaction;
-        protected string type;
+        protected double deposit;
+        protected double withdrawal;
 
         //properties
-        public double Routing
+      
+        public double Withdrawal
         {
-            get { return this.routingNumber;}
+            get { return this.withdrawal; }
+            set { this.withdrawal = value; }
         }
-        public double AcctNumb
+        public double Deposit
         {
-            get { return this.accountNumber; }
+            get { return this.deposit; }
+            set { this.deposit = value; }
         }
-        public double Transaction
-        {
-            get { return this.transaction; }
-            set { this.transaction = value; }
-        }
+        public double AcctNumber
+        { get{ return this.accountNumber; }}
+
+        public double Bal
+        { get { return this.balance; }}
 
         //constructors
-
         public Account()
         {
             firstName = "Barack";
             lastName = "Obama";
-            routingNumber = 24000980012;
+            balance = 100;
         }
+
         //methods
+        //creates random Account Number
         public virtual double AccountNumb()
         {
             Random rand = new Random();
             this.accountNumber =rand.Next(100000000, 1000000000);
             return accountNumber;
         }
-        public virtual double Withdrawal()
+        //balance
+     
+        public virtual double Balance()
         {
-            this.balance -= this.transaction;
+            balance = balance + deposit - withdrawal;
+            deposit = 0;
+            withdrawal = 0;
+                 return balance;
+            }
+       public virtual double WithdrawBalance(double input)
+        {
+            withdrawal = input;
+            deposit = 0;
+           Balance();
             return balance;
         }
-        public virtual double Deposit()
+        public virtual double DepositBalance(double input)
         {
-            this.balance += this.transaction;
+            deposit = input;
+          withdrawal = 0;
+            Balance();
             return balance;
         }
-        public virtual void Menu()
+        //display menu
+        public virtual void DisplayMenu()
         {
-            Console.WriteLine("Fake US Bank Inc.\n\nWelcome to your online bank account, " + firstName + " " +  lastName + ".\nPlease choose from the options below:\n1.View Client Info\n2.View Account Balance\n3.Deposit Funds\n4.Withdraw Funds\n5.Exit");
+            Console.WriteLine("Fake US Bank Inc.\nWelcome to your online bank account, " + firstName + " " + lastName);
+            Console.WriteLine("Please choose from the options below:\n1.View Client Info\n2.View Account Balance:");
+            Console.WriteLine("     2A.Checking\n     2B.Reserve\n     2C.Savings");
+            Console.WriteLine("3.Deposit Funds:\n     3A.Checking\n     3B.Reserve\n     3C.Savings");
+            Console.WriteLine("4.Withdraw Funds:\n     4A.Checking\n     4B.Reserve\n     4C.Savings");
+            Console.WriteLine("5.Exit");
         }
-            //
-            //Console.WriteLine("Bank Account Holder: " + firstName + " " + lastName);
-            //Console.WriteLine("Account Type: " + type);
-            //Console.WriteLine("Account Number: " + AcctNumb);
-            //Console.WriteLine("Routing Number: " + Routing);
-
-        public virtual void DisplayBalance()
+        //client info
+        public string ClientInfo()
         {
-            Console.WriteLine(type + " Current Balance: $" + balance);
+             string clientinfo = ("Account Holder: " + firstName + " " + lastName);
+            return clientinfo;
         }
-        
     }
 }

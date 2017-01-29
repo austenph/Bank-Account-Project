@@ -30,17 +30,19 @@ namespace Bank_Account_Project
         {
             return base.AccountNumb();
         }
-        public override double Deposit()
+        public override double Balance( )
         {
-            return base.Deposit();
+            return base.Balance();
         }
-        public override double Withdrawal()
+        public override double WithdrawBalance(double input)
         {
-            return base.Withdrawal();
+            return base.WithdrawBalance(input);
         }
-        public override void DisplayBalance()
+        public override double DepositBalance(double input)
         {
-            base.DisplayBalance();
+            return base.DepositBalance(input);
         }
+
+
     }
 }

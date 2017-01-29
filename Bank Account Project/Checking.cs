@@ -8,51 +8,46 @@ namespace Bank_Account_Project
 {
     class Checking:Account
     {
-        //fields
-        private string accountLevel;
-        private int minBalance;
+        //field
+        private double minBalance;
         private double maxBalance;
+
   
         //properties
+        public double MinBalance
+        { get { return this.minBalance; }}
 
-        public int MinBalance
-        {
-            get { return this.minBalance; }
-        }
         public double MaxBalance
-        {
-            get { return this.maxBalance; }
-        }
+        { get { return this.maxBalance; } }
+
 
         //constructors
 
         public Checking():base()
         {
-            this.accountLevel = "Presidental Performance Select";
             this.minBalance = 500;
             this.maxBalance=1000000000000;
-            this.balance = 487000;
-            this.type = "Checking Account";
-
         }
+
         //methods
+        //random account number assigned
         public override double AccountNumb()
         {
             return base.AccountNumb();
         }
-        public override double Deposit()
+        //keeps track of balance
+        public override double Balance()
         {
-            return base.Deposit();
+            return base.Balance();
         }
-        public override double Withdrawal()
+        public override double WithdrawBalance(double input)
         {
-            return base.Withdrawal();
+            return base.WithdrawBalance(input);
         }
-        //public override void ClientInfo()
-        //{
-        //    base.ClientInfo();
-        //    Console.WriteLine("Checking Account Type: " + accountLevel);
-        //    Console.WriteLine("Minimum Balance Required: $" + minBalance);
-        //}
+        public override double DepositBalance(double input)
+        {
+            return base.DepositBalance(input);
+        }
+
     }
 }
