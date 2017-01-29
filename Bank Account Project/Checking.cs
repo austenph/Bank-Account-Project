@@ -40,13 +40,13 @@ namespace Bank_Account_Project
         {
             return base.Balance();
         }
-        public override double WithdrawBalance(double input)
-        {
-            return base.WithdrawBalance(input);
-        }
         public override double DepositBalance(double input)
         {
             return base.DepositBalance(input);
+        }
+        public override double StoreDeposit(double input)
+        {
+            return base.StoreDeposit(input);
         }
 
     }

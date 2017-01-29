@@ -19,7 +19,14 @@ namespace Bank_Account_Project
         protected double withdrawal;
 
         //properties
-      
+        public double CurrentDep
+        {
+            get; set;
+        }
+        public double CurrentWith
+        {
+            get; set;
+        }
         public double Withdrawal
         {
             get { return this.withdrawal; }
@@ -61,18 +68,23 @@ namespace Bank_Account_Project
             withdrawal = 0;
                  return balance;
             }
-       public virtual double WithdrawBalance(double input)
+       public virtual double StoreDeposit(double input)
         {
-            withdrawal = input;
-            deposit = 0;
-           Balance();
-            return balance;
+            double currentdeposit = input;
+            return currentdeposit;
         }
         public virtual double DepositBalance(double input)
         {
             deposit = input;
-          withdrawal = 0;
-            Balance();
+            withdrawal = 0;
+            balance = balance + deposit - withdrawal;
+            return balance;
+        }
+        public virtual double WithBalance(double input)
+        {
+            withdrawal = input;
+            deposit = 0;
+            balance = balance + deposit - withdrawal;
             return balance;
         }
         //display menu

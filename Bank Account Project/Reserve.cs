@@ -11,7 +11,7 @@ namespace Bank_Account_Project
         //fields
         private string wishlist;
         private int interest;
-        private string warning;
+        protected double reservebalance;
 
         //properties
         public int Interest
@@ -24,15 +24,11 @@ namespace Bank_Account_Project
             get { return this.wishlist; }
             set { this.wishlist = value; }
         }
-        public string Warning
-        {
-            get { return this.warning; }
-        }
+
         //constructors
         public Reserve():base()
         {
             this.interest = 3;
-            warning = "Your balance is low.";
         }
         //methods
         //account number 
@@ -45,13 +41,13 @@ namespace Bank_Account_Project
         {
             return base.Balance();
         }
-        public override double WithdrawBalance(double input)
-        {
-            return base.WithdrawBalance(input);
-        }
         public override double DepositBalance(double input)
         {
             return base.DepositBalance(input);
+        }
+        public override double StoreDeposit(double input)
+        {
+            return base.StoreDeposit(input);
         }
 
 
