@@ -1,7 +1,7 @@
 (Week 4 of We Can Code It Full-Stack .NET bootcamp weekend project)
 
 Applied learning of C#, OOP Principles (Inheritance, Polymorphism, Encapsulation, and Abstraction), and StreamWriter to 
-created a single-user online banking console application. This application allowed users to view there account balances 
+created a single-user online banking console application. This application allowed users to view their account balances 
 for three separate accounts (Checking, Reserve, and Savings), deposit or withdraw funds, and exit the program. 
 After each transaction the user's information was saved to a StreamWriter file including: Date, Time, Ammount, Account, 
 and New Balance. I was able to incorporate persistence as well. 
